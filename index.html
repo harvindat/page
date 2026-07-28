@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Balatas y Refacciones Rodríguez | Refacciones y balatas certificadas en Durango</title>
 <meta name="description" content="Balatas, refacciones, mangueras y conexiones de marcas certificadas en Durango. Asesoría técnica honesta y precios justos." />
+<!-- TODO: reemplazar por el dominio real antes de publicar -->
 <link rel="canonical" href="https://balatasrodriguez.com/" />
 <meta name="theme-color" content="#0A1F4D" />
 <meta name="robots" content="index,follow" />
@@ -16,6 +17,7 @@
 <meta property="og:site_name" content="Balatas y Refacciones Rodríguez" />
 <meta property="og:title" content="Balatas y Refacciones Rodríguez | Refacciones certificadas en Durango" />
 <meta property="og:description" content="Balatas, refacciones, mangueras y conexiones de marcas certificadas. Asesoría técnica honesta y precios justos en Durango." />
+<!-- TODO: reemplazar por el dominio real antes de publicar -->
 <meta property="og:url" content="https://balatasrodriguez.com/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Balatas y Refacciones Rodríguez" />
@@ -39,241 +41,389 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
-/* ============ TOKENS ============ */
+/* ============================================================
+   TOKENS
+   ============================================================ */
 :root{
   --navy:#0A1F4D;
   --navy-2:#102B6A;
-  --navy-tint:#E8EEFB;
+  --navy-3:#163A87;
+  --navy-tint:#EAF0FC;
   --red:#DA1F26;
   --red-deep:#A8141A;
-  --steel-900:#161A1F;
+  --ink:#1B2437;
+  --steel-900:#12151B;
+  --steel-800:#191D25;
   --steel-700:#2A2E35;
-  --steel-500:#6B7280;
+  --steel-500:#68707E;
+  --steel-400:#8A93A1;
   --steel-300:#AEB6C2;
-  --steel-200:#D9DEE6;
-  --steel-100:#EDF0F5;
-  --paper:#F6F8FB;
+  --steel-200:#DCE2EC;
+  --steel-100:#EDF0F6;
+  --paper:#F4F6FB;
+  --paper-2:#EDF1F8;
   --white:#FFFFFF;
-  --ring:rgba(10,31,77,.12);
-  --shadow-sm:0 2px 8px rgba(16,30,60,.06);
-  --shadow-md:0 16px 40px rgba(16,30,60,.10);
-  --shadow-lg:0 30px 70px rgba(16,30,60,.16);
-  --maxw:1180px;
-  --r:18px;
+
+  --line:rgba(10,31,77,.09);
+  --line-2:rgba(10,31,77,.14);
+  --glass:rgba(255,255,255,.66);
+  --glass-2:rgba(255,255,255,.82);
+
+  /* navy-tinted shadows */
+  --shadow-xs:0 1px 2px rgba(10,31,77,.06);
+  --shadow-sm:0 4px 16px -4px rgba(10,31,77,.12);
+  --shadow-md:0 20px 44px -18px rgba(10,31,77,.24);
+  --shadow-lg:0 40px 80px -28px rgba(10,31,77,.30);
+  --shadow-red:0 18px 40px -14px rgba(218,31,38,.42);
+
+  --maxw:1200px;
+  --r-lg:26px;
+  --r:20px;
+  --r-sm:14px;
+
   --ease:cubic-bezier(.22,1,.36,1);
   --ease-out:cubic-bezier(.23,1,.32,1);
   --ease-inout:cubic-bezier(.77,0,.175,1);
+  --ease-spring:cubic-bezier(.34,1.56,.5,1);
   --ease-drawer:cubic-bezier(.32,.72,0,1);
 }
+
+/* ============================================================
+   BASE
+   ============================================================ */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:"Manrope",system-ui,sans-serif;
-  color:var(--steel-900);
+  font-family:"Manrope",system-ui,-apple-system,sans-serif;
+  color:var(--ink);
   background:var(--paper);
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
-h1,h2,h3,h4,.display{font-family:"Saira","Manrope",sans-serif;font-weight:800;letter-spacing:-.01em;line-height:1.04;margin:0}
-p{margin:0;line-height:1.6}
+h1,h2,h3,h4,.display{font-family:"Saira","Manrope",sans-serif;font-weight:800;letter-spacing:-.018em;line-height:1.03;margin:0;text-wrap:balance}
+p{margin:0;line-height:1.62;text-wrap:pretty}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
-.eyebrow{font-family:"Saira",sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 26px}
 .muted{color:var(--steel-500)}
+.hl{color:var(--red)}
 
-/* ============ HEADER ============ */
-.header{
-  position:sticky;top:0;z-index:60;
-  background:rgba(246,248,251,.78);
-  backdrop-filter:saturate(160%) blur(14px);
-  border-bottom:1px solid transparent;
-  transition:border-color .3s, box-shadow .3s, background .3s;
-}
-.header.scrolled{border-color:var(--steel-200);box-shadow:var(--shadow-sm)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.brand img{height:46px;width:auto;filter:drop-shadow(0 4px 10px rgba(16,30,60,.12))}
-/* logo svg */
-.logo{display:flex;align-items:center;gap:11px}
-.logo-mark{width:44px;height:44px;flex:none;filter:drop-shadow(0 3px 7px rgba(16,30,60,.20))}
-.logo-word{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
-.logo-word .l1{font-family:"Saira",sans-serif;font-weight:700;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)}
-.logo-word .l2{font-family:"Saira",sans-serif;font-weight:900;font-size:22px;letter-spacing:.012em;text-transform:uppercase;color:var(--red);margin-top:2px}
-.footer .logo-mark{width:50px;height:50px}
-.footer .logo-word .l1{color:#fff}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-weight:600;font-size:15px;color:var(--steel-700);position:relative;padding:6px 0}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--red);transition:width .28s var(--ease)}
-@media (hover:hover) and (pointer:fine){.nav-links a:hover{color:var(--navy)}.nav-links a:hover::after{width:100%}}
-.btn{display:inline-flex;align-items:center;gap:9px;font-family:"Saira",sans-serif;font-weight:700;font-size:15px;border-radius:999px;padding:12px 22px;cursor:pointer;border:none;transition:transform .2s var(--ease),box-shadow .25s,background .25s;white-space:nowrap}
-.btn:active{transform:scale(.97)}
-.btn-wa{background:#1FA855;color:#fff;box-shadow:0 10px 22px rgba(31,168,85,.28)}
-.btn-primary{background:var(--red);color:#fff;box-shadow:0 10px 24px rgba(218,31,38,.28)}
-.btn-ghost{background:transparent;color:var(--navy);border:1.5px solid var(--steel-200)}
+/* grain overlay */
+.grain{position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.026;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* eyebrow pill */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"Saira",sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);
+  background:rgba(218,31,38,.07);border:1px solid rgba(218,31,38,.16);
+  padding:6px 13px 6px 11px;border-radius:999px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(218,31,38,.16)}
+.eyebrow.navy{color:var(--navy);background:rgba(10,31,77,.06);border-color:rgba(10,31,77,.14)}
+.eyebrow.navy::before{background:var(--navy);box-shadow:0 0 0 3px rgba(10,31,77,.12)}
+.eyebrow.light{color:#fff;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}
+.eyebrow.light::before{background:var(--red);box-shadow:0 0 0 3px rgba(218,31,38,.3)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:"Saira",sans-serif;font-weight:700;
+  font-size:15px;border-radius:999px;padding:13px 14px 13px 22px;cursor:pointer;border:none;
+  transition:transform .28s var(--ease),box-shadow .3s var(--ease),background .25s;white-space:nowrap;position:relative}
+.btn .ico{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none;
+  transition:transform .35s var(--ease-spring),background .25s}
+.btn.pad{padding-right:22px}
+.btn:active{transform:scale(.975)}
+.btn-primary{background:var(--red);color:#fff;box-shadow:var(--shadow-red)}
+.btn-primary .ico{background:rgba(255,255,255,.18)}
+.btn-wa{background:#1FA855;color:#fff;box-shadow:0 16px 34px -12px rgba(31,168,85,.5)}
+.btn-wa .ico{background:rgba(255,255,255,.18)}
+.btn-ghost{background:var(--glass-2);color:var(--navy);border:1px solid var(--line-2);padding:13px 22px;box-shadow:var(--shadow-xs)}
+.btn-dark{background:var(--navy);color:#fff;box-shadow:var(--shadow-md)}
+.btn-dark .ico{background:rgba(255,255,255,.14)}
 @media (hover:hover) and (pointer:fine){
-  .btn-wa:hover{background:#1c9a4e;box-shadow:0 14px 30px rgba(31,168,85,.36);transform:translateY(-2px)}
-  .btn-primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(218,31,38,.34)}
-  .btn-ghost:hover{border-color:var(--navy);background:#fff}
+  .btn-primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 22px 46px -14px rgba(218,31,38,.52)}
+  .btn-wa:hover{background:#1c9a4e;transform:translateY(-2px);box-shadow:0 22px 44px -12px rgba(31,168,85,.55)}
+  .btn-ghost:hover{border-color:var(--navy);background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+  .btn-dark:hover{background:var(--navy-2);transform:translateY(-2px)}
+  .btn:hover .ico{transform:translate(3px,-1px)}
 }
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-.burger span{width:24px;height:2.5px;background:var(--navy);border-radius:2px;transition:transform .24s var(--ease-out),opacity .24s var(--ease-out)}
 
-/* ============ HERO ============ */
-.hero{position:relative;padding:64px 0 90px;overflow:hidden}
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{position:sticky;top:0;z-index:120;
+  background:rgba(244,246,251,.72);
+  -webkit-backdrop-filter:saturate(170%) blur(16px);backdrop-filter:saturate(170%) blur(16px);
+  border-bottom:1px solid transparent;transition:border-color .35s,box-shadow .35s,background .35s}
+.header.scrolled{border-color:var(--line);box-shadow:0 8px 30px -18px rgba(10,31,77,.28);background:rgba(244,246,251,.86)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:42px;height:42px;flex:none;filter:drop-shadow(0 3px 8px rgba(10,31,77,.22))}
+.logo-word{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
+.logo-word .l1{font-family:"Saira",sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);opacity:.9}
+.logo-word .l2{font-family:"Saira",sans-serif;font-weight:900;font-size:22px;letter-spacing:.01em;text-transform:uppercase;color:var(--red);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-weight:600;font-size:14.5px;color:var(--steel-700);position:relative;padding:6px 0;transition:color .22s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--red);border-radius:2px;transition:width .32s var(--ease)}
+.nav-links a.active{color:var(--navy)}
+.nav-links a.active::after{width:100%}
+@media (hover:hover) and (pointer:fine){.nav-links a:hover{color:var(--navy)}.nav-links a:hover::after{width:100%}}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:9px;border-radius:10px}
+.burger span{width:24px;height:2.4px;background:var(--navy);border-radius:2px;transition:transform .3s var(--ease-out),opacity .24s}
+.burger.on span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding:70px 0 96px;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;
-  background-image:linear-gradient(var(--ring) 1px,transparent 1px),linear-gradient(90deg,var(--ring) 1px,transparent 1px);
-  background-size:46px 46px;
-  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 35%,transparent 75%);
-  mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 35%,transparent 75%);
-  opacity:.7}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center}
-.hero-copy{max-width:700px}
-.hero h1{font-size:clamp(32px,3.3vw,46px);font-weight:900;color:var(--navy);margin:18px 0 0}
-.hero h1 .hl{color:var(--red)}
-.hero .lead{margin-top:20px;font-size:clamp(16px,1.5vw,18px);color:var(--steel-700);max-width:56ch}
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask-image:radial-gradient(ellipse 78% 68% at 26% 30%,#000 30%,transparent 72%);
+  mask-image:radial-gradient(ellipse 78% 68% at 26% 30%,#000 30%,transparent 72%);opacity:.65}
+.hero::after{content:"";position:absolute;z-index:0;width:640px;height:640px;right:-140px;top:-160px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(218,31,38,.10),transparent 62%)}
+.hero-glow{position:absolute;z-index:0;width:560px;height:560px;left:-180px;bottom:-220px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(16,43,106,.14),transparent 64%)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+.hero-copy{max-width:640px}
+.hero h1{font-size:clamp(34px,4.6vw,58px);font-weight:900;color:var(--navy);margin:22px 0 0;letter-spacing:-.028em}
+.hero .lead{margin-top:22px;font-size:clamp(16px,1.55vw,18.5px);color:var(--steel-700);max-width:52ch;font-weight:500}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.chip{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--steel-200);padding:9px 14px;border-radius:999px;box-shadow:var(--shadow-sm)}
-.chip svg{width:16px;height:16px;color:var(--red)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--navy);
+  background:var(--glass-2);border:1px solid var(--line);padding:9px 14px;border-radius:999px;box-shadow:var(--shadow-xs)}
+.chip svg{width:15px;height:15px;color:var(--red)}
 
-/* hero visual */
-.hero-visual{position:relative;height:460px;display:flex;align-items:center;justify-content:center}
-.disc-stage{position:relative;width:min(440px,92%);aspect-ratio:1;filter:drop-shadow(0 40px 60px rgba(16,30,60,.22))}
+/* hero visual — double-bezel frame */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.visual-shell{position:relative;width:min(460px,100%);aspect-ratio:1;border-radius:34px;padding:12px;
+  background:linear-gradient(150deg,rgba(255,255,255,.9),rgba(234,240,252,.55));
+  border:1px solid var(--line);box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,.9)}
+.visual-core{position:relative;width:100%;height:100%;border-radius:24px;overflow:hidden;
+  background:radial-gradient(120% 120% at 30% 20%,#fbfcff,#e9eef8 70%,#dbe3f1);
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.8),inset 0 -14px 40px -20px rgba(10,31,77,.24)}
+.visual-core::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(10,31,77,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(10,31,77,.05) 1px,transparent 1px);
+  background-size:30px 30px;-webkit-mask-image:radial-gradient(circle at 50% 46%,#000,transparent 72%);mask-image:radial-gradient(circle at 50% 46%,#000,transparent 72%)}
+.disc-stage{position:absolute;inset:0;margin:auto;width:80%;aspect-ratio:1;filter:drop-shadow(0 30px 40px rgba(10,31,77,.28))}
 .rotor{position:absolute;inset:0;animation:spin 22s linear infinite;transform-origin:50% 50%}
 .caliper{position:absolute;inset:0;z-index:3}
-.float-icon{position:absolute;z-index:4;background:#fff;border:1px solid var(--steel-200);border-radius:16px;display:grid;place-items:center;box-shadow:var(--shadow-md);color:var(--navy)}
+.float-icon{position:absolute;z-index:4;background:var(--glass-2);border:1px solid var(--line);border-radius:16px;display:grid;place-items:center;box-shadow:var(--shadow-md);color:var(--navy);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .float-icon svg{width:50%;height:50%}
-.fi-1{width:74px;height:74px;top:6%;right:4%;animation:floaty 6s ease-in-out infinite}
-.fi-2{width:62px;height:62px;bottom:10%;left:-2%;animation:floaty 7.5s ease-in-out infinite .6s}
-.fi-3{width:56px;height:56px;bottom:32%;right:-3%;color:var(--red);animation:floaty 8s ease-in-out infinite 1.1s}
+.fi-1{width:66px;height:66px;top:4%;right:0;animation:floaty 6s ease-in-out infinite}
+.fi-2{width:56px;height:56px;bottom:8%;left:-4%;animation:floaty 7.5s ease-in-out infinite .6s}
+.fi-3{width:50px;height:50px;bottom:30%;right:-5%;color:var(--red);animation:floaty 8s ease-in-out infinite 1.1s}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
 
-/* ============ MARQUEE / MARCAS ============ */
-.marcas{padding:30px 0 8px}
-.marcas .lbl{text-align:center;font-size:15px;font-weight:500;color:var(--steel-500);margin-bottom:22px}
-.marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee-track{display:flex;width:max-content;gap:64px;align-items:center;animation:scroll 26s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track img{height:46px;width:auto;opacity:.62;filter:grayscale(100%);transition:opacity .25s var(--ease-out),filter .25s var(--ease-out),transform .25s var(--ease-out)}
+/* stat strip under hero visual */
+.hero-stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;
+  background:var(--glass-2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden}
+.hero-stats .st{padding:22px 26px;position:relative}
+.hero-stats .st + .st{border-left:1px solid var(--line)}
+.hero-stats .st b{font-family:"Saira",sans-serif;font-weight:800;font-size:15px;letter-spacing:.02em;color:var(--navy);display:block}
+.hero-stats .st span{font-size:13.5px;color:var(--steel-500);margin-top:3px;display:block}
+.hero-stats .st .k{color:var(--red)}
+
+/* ============================================================
+   BRANDS / LÍNEAS
+   ============================================================ */
+.brands{padding:96px 0}
+.brands-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:40px;flex-wrap:wrap}
+.brands-head h2{font-size:clamp(26px,3vw,38px);color:var(--navy);max-width:16ch}
+.brands-head p{margin-top:14px;color:var(--steel-500);font-size:16px;max-width:44ch}
+.brand-grid{display:flex;flex-wrap:wrap;gap:18px}
+.brand-card{flex:1 1 200px;max-width:calc(20% - 15px);min-width:190px;
+  background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:12px;
+  box-shadow:var(--shadow-xs);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s;position:relative;overflow:hidden}
+.brand-plate{border-radius:var(--r-sm);background:#fff;border:1px solid var(--line);height:88px;display:grid;place-items:center;padding:14px 16px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(10,31,77,.05)}
+.brand-plate img{max-height:100%;max-width:100%;width:auto;object-fit:contain}
+.brand-meta{padding:14px 8px 6px}
+.brand-meta b{font-family:"Saira",sans-serif;font-weight:800;font-size:15.5px;color:var(--navy);display:block;letter-spacing:.005em}
+.brand-meta span{display:block;margin-top:3px;font-size:12.5px;color:var(--steel-500);line-height:1.4}
+.brand-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:0 50%;transition:transform .45s var(--ease)}
 @media (hover:hover) and (pointer:fine){
-  .marquee-track img:hover{opacity:1;filter:grayscale(0);transform:scale(1.06)}
+  .brand-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-md);border-color:var(--line-2)}
+  .brand-card:hover::after{transform:scaleX(1)}
 }
-@keyframes scroll{to{transform:translateX(-50%)}}
 
-/* ============ SECTION SHELL ============ */
-.section{padding:92px 0;position:relative}
-.section-head{max-width:680px;margin:0 auto 56px;text-align:center}
-.section-head h2{font-size:clamp(30px,3.6vw,44px);color:var(--navy);margin-top:12px}
-.section-head p{margin-top:16px;color:var(--steel-500);font-size:17px}
+/* ============================================================
+   SECTION SHELL
+   ============================================================ */
+.section{padding:104px 0;position:relative}
+.section-head{max-width:660px;margin:0 auto 58px;text-align:center}
+.section-head h2{font-size:clamp(30px,3.7vw,46px);color:var(--navy);margin-top:16px}
+.section-head p{margin-top:18px;color:var(--steel-500);font-size:17px}
 
-/* ============ NOSOTROS (mision/vision) ============ */
-.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.mv-card{position:relative;background:#fff;border:1px solid var(--steel-200);border-radius:var(--r);padding:40px 36px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s}
+/* ============================================================
+   NOSOTROS (mision / vision)
+   ============================================================ */
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mv-card{position:relative;background:var(--glass-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:44px 40px;overflow:hidden;
+  box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.7);transition:transform .42s var(--ease),box-shadow .42s}
+.mv-card::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(10,31,77,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(10,31,77,.04) 1px,transparent 1px);
+  background-size:32px 32px;-webkit-mask-image:radial-gradient(circle at 90% 8%,#000,transparent 60%);mask-image:radial-gradient(circle at 90% 8%,#000,transparent 60%)}
 @media (hover:hover) and (pointer:fine){.mv-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}}
-.mv-card .tag{display:inline-flex;align-items:center;gap:10px;font-family:"Saira",sans-serif;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
-.mv-card .tag .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--red);color:#fff}
-.mv-card .tag .dot svg{width:16px;height:16px}
-.mv-card.vis .tag,.mv-card.vis .tag .dot{color:var(--navy)}
-.mv-card.vis .tag .dot{background:var(--navy);color:#fff}
-.mv-card p{font-size:18.5px;line-height:1.62;color:var(--steel-700);font-weight:500}
-.mv-card > *{position:relative;z-index:1}
+.mv-card .tag{display:inline-flex;align-items:center;gap:12px;font-family:"Saira",sans-serif;font-weight:800;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:22px;position:relative;z-index:1}
+.mv-card .tag .dot{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--red);color:#fff;box-shadow:var(--shadow-red)}
+.mv-card .tag .dot svg{width:19px;height:19px}
+.mv-card.vis .tag{color:var(--navy)}
+.mv-card.vis .tag .dot{background:var(--navy);color:#fff;box-shadow:var(--shadow-md)}
+.mv-card p{font-size:18px;line-height:1.62;color:var(--steel-700);font-weight:500;position:relative;z-index:1;max-width:46ch}
 
-/* ============ VALORES ============ */
-.valores{background:linear-gradient(180deg,#fff 0%,var(--paper) 100%)}
+/* ============================================================
+   VALORES (bento)
+   ============================================================ */
+.valores{background:linear-gradient(180deg,var(--white) 0%,var(--paper) 100%)}
 .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.val-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--steel-200);border-radius:var(--r);padding:30px 28px;box-shadow:var(--shadow-sm);transition:transform .28s var(--ease-out),box-shadow .28s var(--ease-out)}
-.val-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:var(--navy-tint);color:var(--navy);margin-bottom:18px;transition:background .22s var(--ease-out),color .22s var(--ease-out)}
-.val-ico svg{width:26px;height:26px}
-.val-card h3{font-size:20px;color:var(--navy);margin-bottom:10px}
+.val-card{position:relative;overflow:hidden;background:var(--glass-2);border:1px solid var(--line);border-radius:var(--r);padding:32px 30px;
+  box-shadow:var(--shadow-xs);transition:transform .34s var(--ease-out),box-shadow .34s var(--ease-out),border-color .3s}
+.val-ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--navy-tint);color:var(--navy);margin-bottom:20px;
+  transition:background .24s var(--ease-out),color .24s var(--ease-out),transform .3s var(--ease-spring)}
+.val-ico svg{width:25px;height:25px}
+.val-card h3{font-size:20px;color:var(--navy);margin-bottom:11px;letter-spacing:-.01em}
 .val-card ul{margin:0;padding-left:18px}
-.val-card li{color:var(--steel-500);font-size:14.5px;line-height:1.55;margin-bottom:6px}
+.val-card li{color:var(--steel-500);font-size:14.5px;line-height:1.55;margin-bottom:7px}
 @media (hover:hover) and (pointer:fine){
-  .val-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-  .val-card:hover .val-ico{background:var(--navy);color:#fff}
+  .val-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--line-2)}
+  .val-card:hover .val-ico{background:var(--navy);color:#fff;transform:scale(1.06)}
   .val-card.solid:hover .val-ico{background:#fff;color:var(--navy)}
 }
-/* celdas con superficie propia */
-.val-card.solid{border-color:transparent;box-shadow:var(--shadow-md)}
+.val-card.solid{border-color:transparent;box-shadow:var(--shadow-md);color:#fff}
 .val-card.solid h3{color:#fff}
-.val-card.solid li{color:rgba(255,255,255,.74)}
+.val-card.solid li{color:rgba(255,255,255,.76)}
 .val-card.solid .val-ico{background:rgba(255,255,255,.14);color:#fff}
 .val-card.solid::after{content:"";position:absolute;inset:0;pointer-events:none;
   background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-  background-size:34px 34px;
-  -webkit-mask-image:radial-gradient(circle at 88% 12%,#000,transparent 68%);mask-image:radial-gradient(circle at 88% 12%,#000,transparent 68%)}
+  background-size:34px 34px;-webkit-mask-image:radial-gradient(circle at 88% 12%,#000,transparent 68%);mask-image:radial-gradient(circle at 88% 12%,#000,transparent 68%)}
 .val-card.solid > *{position:relative;z-index:1}
-/* bento: 6 items, 6 celdas, 0 huecos */
-.v1{grid-column:span 2;background:linear-gradient(150deg,var(--navy),var(--navy-2));padding:40px 38px}
+.v1{grid-column:span 2;background:linear-gradient(150deg,var(--navy),var(--navy-2));padding:42px 40px}
 .v1 h3{font-size:30px;max-width:16ch}
 .v1 li{font-size:15.5px}
-.v2{grid-column:span 1}
-.v3{grid-column:span 1}
-.v4{grid-column:span 1;background:linear-gradient(150deg,var(--steel-700),var(--steel-900))}
-.v5{grid-column:span 1}
-.v6{grid-column:span 3;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;border-left:4px solid var(--red);border-radius:var(--r)}
+.v2,.v3,.v5{grid-column:span 1}
+.v4{grid-column:span 1;background:linear-gradient(150deg,var(--steel-800),var(--steel-900))}
+.v6{grid-column:span 3;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;border-left:4px solid var(--red)}
 .v6 .val-ico{margin-bottom:0}
 .v6 h3{margin-bottom:6px}
 .v6 ul{padding-left:18px;columns:2;column-gap:34px}
 
-/* ============ SERVICIOS ============ */
+/* ============================================================
+   SERVICIOS (asymmetric featured + three)
+   ============================================================ */
 .serv-grid{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:repeat(3,1fr);gap:18px}
-.serv.s1{grid-column:1;grid-row:1/4;min-height:420px;padding:40px 36px}
+.serv{position:relative;border-radius:var(--r);padding:30px 28px;color:#fff;overflow:hidden;min-height:180px;
+  display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow-md);transition:transform .4s var(--ease),box-shadow .4s}
+@media (hover:hover) and (pointer:fine){.serv:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}}
+.serv.s1{grid-column:1;grid-row:1/4;min-height:430px;padding:42px 38px;background:linear-gradient(150deg,var(--navy),var(--navy-2))}
 .serv.s1 h3{font-size:34px}
 .serv.s1 p{font-size:16px;max-width:34ch}
 .serv.s1 .s-ico{width:60px;height:60px;border-radius:16px}
 .serv.s1 .s-ico svg{width:30px;height:30px}
 .serv.s1 .ghost svg{width:260px;height:260px}
-.serv.s2{grid-column:2;grid-row:1}.serv.s3{grid-column:2;grid-row:2}.serv.s4{grid-column:2;grid-row:3}
-.serv.s2,.serv.s3,.serv.s4{min-height:0}
-.serv{position:relative;border-radius:var(--r);padding:30px 26px;color:#fff;overflow:hidden;min-height:178px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow-md)}
-.serv.s1{background:linear-gradient(150deg,var(--navy),var(--navy-2))}
-.serv.s2{background:linear-gradient(150deg,var(--red),var(--red-deep))}
-.serv.s3{background:linear-gradient(150deg,var(--steel-700),var(--steel-900))}
-.serv.s4{background:linear-gradient(150deg,var(--navy-2),#163a87)}
+.serv.s2{grid-column:2;grid-row:1;background:linear-gradient(150deg,var(--red),var(--red-deep))}
+.serv.s3{grid-column:2;grid-row:2;background:linear-gradient(150deg,var(--steel-700),var(--steel-900))}
+.serv.s4{grid-column:2;grid-row:3;background:linear-gradient(150deg,var(--navy-2),var(--navy-3))}
 .serv .s-ico{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center}
 .serv .s-ico svg{width:24px;height:24px;color:#fff}
-.serv h3{font-size:21px;margin-top:auto}
+.serv h3{font-size:21px;margin-top:auto;letter-spacing:-.01em}
 .serv p{font-size:13.5px;opacity:.86;margin-top:6px}
-.serv .ghost{position:absolute;right:-26px;top:-26px;opacity:.10;pointer-events:none}
+.serv .ghost{position:absolute;right:-26px;top:-26px;opacity:.1;pointer-events:none}
 .serv .ghost svg{width:150px;height:150px;color:#fff}
 
-/* ============ CTA BANNER ============ */
-.cta-banner{background:radial-gradient(120% 140% at 80% 10%,var(--navy-2),var(--navy) 60%);border-radius:28px;padding:56px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
-.cta-banner::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:38px 38px;-webkit-mask-image:radial-gradient(circle at 85% 30%,#000,transparent 70%);mask-image:radial-gradient(circle at 85% 30%,#000,transparent 70%)}
-.cta-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+/* ============================================================
+   TESTIMONIOS
+   ============================================================ */
+.testi{background:linear-gradient(180deg,var(--paper) 0%,var(--white) 100%)}
+.testi-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+.testi-col{display:grid;gap:20px}
+.quote{position:relative;background:var(--glass-2);border:1px solid var(--line);border-radius:var(--r);padding:34px 34px 28px;
+  box-shadow:var(--shadow-sm);transition:transform .4s var(--ease),box-shadow .4s;overflow:hidden}
+@media (hover:hover) and (pointer:fine){.quote:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}}
+.quote .mark{font-family:"Saira",sans-serif;font-weight:900;font-size:64px;line-height:.6;color:var(--red);opacity:.18;height:34px}
+.quote p{font-size:16.5px;color:var(--steel-700);font-weight:500;margin-top:6px;line-height:1.6}
+.quote .who{display:flex;align-items:center;gap:13px;margin-top:24px}
+.quote .av{width:44px;height:44px;border-radius:13px;background:var(--navy-tint);color:var(--navy);display:grid;place-items:center;font-family:"Saira",sans-serif;font-weight:800;font-size:16px;flex:none}
+.quote .who b{display:block;font-size:15px;color:var(--navy);font-family:"Saira",sans-serif;letter-spacing:.005em}
+.quote .who span{display:block;font-size:13px;color:var(--steel-500);margin-top:1px}
+.quote.feature{background:radial-gradient(130% 130% at 82% 8%,var(--navy-2),var(--navy) 62%);color:#fff;border-color:transparent;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;justify-content:space-between}
+.quote.feature::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:36px 36px;-webkit-mask-image:radial-gradient(circle at 85% 14%,#000,transparent 66%);mask-image:radial-gradient(circle at 85% 14%,#000,transparent 66%)}
+.quote.feature > *{position:relative;z-index:1}
+.quote.feature .mark{opacity:.4}
+.quote.feature p{color:rgba(255,255,255,.94);font-size:20px;line-height:1.5}
+.quote.feature .av{background:rgba(255,255,255,.14);color:#fff}
+.quote.feature .who b{color:#fff}
+.quote.feature .who span{color:rgba(255,255,255,.66)}
+.stars{display:inline-flex;gap:2px;margin-bottom:14px}
+.stars svg{width:16px;height:16px;color:#F5A623}
+.quote.feature .stars svg{color:#FFC24B}
+
+/* ============================================================
+   CTA BANNER
+   ============================================================ */
+.cta-banner{background:radial-gradient(120% 150% at 82% 8%,var(--navy-2),var(--navy) 60%);border-radius:var(--r-lg);padding:58px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:38px 38px;-webkit-mask-image:radial-gradient(circle at 84% 26%,#000,transparent 70%);mask-image:radial-gradient(circle at 84% 26%,#000,transparent 70%)}
+.cta-banner .glow{position:absolute;width:420px;height:420px;right:-120px;top:-160px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(218,31,38,.4),transparent 62%)}
+.cta-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .cta-inner h2{font-size:clamp(26px,3vw,38px);max-width:560px}
-.cta-inner p{margin-top:12px;opacity:.82;max-width:520px}
+.cta-inner p{margin-top:14px;opacity:.82;max-width:520px}
 
-/* ============ CONTACTO ============ */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.contact-card{background:#fff;border:1px solid var(--steel-200);border-radius:var(--r);padding:38px;box-shadow:var(--shadow-sm)}
-.info-row{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--steel-100)}
+/* ============================================================
+   CONTACTO
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.contact-card{background:var(--glass-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:40px;box-shadow:var(--shadow-sm)}
+.info-row{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)}
 .info-row:last-child{border-bottom:none}
-.info-row .ic{flex:none;width:46px;height:46px;border-radius:12px;background:var(--navy-tint);color:var(--navy);display:grid;place-items:center}
+.info-row .ic{flex:none;width:48px;height:48px;border-radius:13px;background:var(--navy-tint);color:var(--navy);display:grid;place-items:center;transition:background .25s,color .25s}
 .info-row .ic svg{width:22px;height:22px}
-.info-row h4{font-family:"Saira",sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-500);margin-bottom:4px}
-.info-row .v{font-size:17px;font-weight:600;color:var(--navy)}
+@media (hover:hover) and (pointer:fine){.info-row:hover .ic{background:var(--navy);color:#fff}}
+.info-row h4{font-family:"Saira",sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-500);margin-bottom:5px}
+.info-row .v{font-size:16.5px;font-weight:600;color:var(--navy)}
+.info-row a.v{transition:color .2s}
 .info-row a.v:hover{color:var(--red)}
-.map-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--steel-200);box-shadow:var(--shadow-sm);min-height:340px;background:#fff}
-.map-card iframe{width:100%;height:100%;min-height:340px;border:0;filter:saturate(.9)}
+.map-card{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);min-height:360px;background:#fff}
+.map-card iframe{width:100%;height:100%;min-height:360px;border:0;filter:saturate(.92) contrast(1.02)}
 
-/* ============ FOOTER ============ */
-.footer{background:var(--steel-900);color:#fff;padding:56px 0 30px;margin-top:0}
-.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
-.foot-brand{max-width:320px}
-.foot-brand p{margin-top:16px;color:var(--steel-300);font-size:14px}
-.foot-col h5{font-family:"Saira",sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
-.foot-col a{display:block;color:var(--steel-300);font-size:14.5px;margin-bottom:10px;transition:color .2s}
-.foot-col a:hover{color:#fff}
-.foot-bottom{margin-top:42px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--steel-500);font-size:13px}
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--steel-900);color:#fff;padding:60px 0 32px;position:relative;overflow:hidden}
+.footer::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse 60% 100% at 90% 0%,#000,transparent 70%);mask-image:radial-gradient(ellipse 60% 100% at 90% 0%,#000,transparent 70%)}
+.foot-grid{position:relative;z-index:1;display:flex;justify-content:space-between;gap:44px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{max-width:340px}
+.footer .logo-mark{width:48px;height:48px}
+.footer .logo-word .l1{color:rgba(255,255,255,.85)}
+.foot-brand p{margin-top:18px;color:var(--steel-300);font-size:14px;line-height:1.6}
+.foot-col h5{font-family:"Saira",sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.foot-col a{display:block;color:var(--steel-300);font-size:14.5px;margin-bottom:11px;transition:color .2s,transform .2s}
+@media (hover:hover) and (pointer:fine){.foot-col a:hover{color:#fff;transform:translateX(3px)}}
+.foot-bottom{position:relative;z-index:1;margin-top:46px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--steel-400);font-size:13px}
 
+/* ============================================================
+   SOSO (verbatim, 15% smaller)
+   ============================================================ */
 /* ============ SOSO (mascota) ============ */
 #soso{
   position:fixed; top:0; left:0; z-index:90;
-  width:var(--soso-size,138px);
+  width:var(--soso-size,117px);
   transform:translate3d(0,0,0);
   touch-action:none;
   -webkit-user-select:none; user-select:none;
@@ -281,8 +431,8 @@ img{display:block;max-width:100%}
 }
 #soso[data-settling="1"]{transition:transform 460ms var(--ease-drawer)}
 #soso[data-hopping="1"]{transition:transform 620ms var(--ease-inout)}
-@media (max-width:900px){#soso{--soso-size:108px}}
-@media (max-width:560px){#soso{--soso-size:88px}}
+@media (max-width:900px){#soso{--soso-size:92px}}
+@media (max-width:560px){#soso{--soso-size:75px}}
 
 .soso-art{
   display:block; width:100%; height:auto; overflow:visible;
@@ -372,17 +522,26 @@ img{display:block;max-width:100%}
 }
 .soso-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ============ REVEAL ============ */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
-.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
 
-/* ============ RESPONSIVE ============ */
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.07s}.reveal.d2{transition-delay:.14s}.reveal.d3{transition-delay:.21s}
+.reveal.d4{transition-delay:.28s}.reveal.d5{transition-delay:.35s}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1040px){
+  .brand-card{max-width:calc(33.333% - 12px)}
+}
 @media(max-width:960px){
-  .hero-grid{grid-template-columns:1fr;gap:26px}
-  .hero-visual{height:300px;order:-1}
-  .hero{padding:34px 0 70px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-visual{order:-1;max-width:420px;margin:0 auto}
+  .hero{padding:40px 0 76px}
+  .hero-stats{margin-top:44px}
   .mv-grid{grid-template-columns:1fr}
   .val-grid{grid-template-columns:1fr 1fr}
   .v1,.v6{grid-column:span 2}
@@ -392,40 +551,51 @@ img{display:block;max-width:100%}
   .serv-grid{grid-template-columns:1fr;grid-template-rows:none}
   .serv.s1{grid-column:1;grid-row:auto;min-height:300px}
   .serv.s2,.serv.s3,.serv.s4{grid-column:1;grid-row:auto;min-height:178px}
+  .testi-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .nav-links{display:none}
-  .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:#fff;padding:22px 24px;gap:18px;border-bottom:1px solid var(--steel-200);box-shadow:var(--shadow-md)}
+  .nav-links.open{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;background:rgba(244,246,251,.97);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:24px 26px;gap:20px;border-bottom:1px solid var(--line-2);box-shadow:var(--shadow-md)}
+  .nav-links.open a{font-size:17px}
   .burger{display:flex}
-  .header .btn-wa{display:none}
+  .nav-cta .btn-wa{display:none}
+}
+@media(max-width:640px){
+  .brand-card{max-width:calc(50% - 9px)}
+  .hero-stats{grid-template-columns:1fr}
+  .hero-stats .st + .st{border-left:none;border-top:1px solid var(--line)}
+  .brands-head{align-items:flex-start}
 }
 @media(max-width:560px){
-  .hero-visual{height:240px}
-  .hero h1{font-size:30px}
-  .hero{padding:22px 0 56px}
+  .hero h1{font-size:32px}
+  .hero{padding:26px 0 60px}
   .val-grid,.serv-grid{grid-template-columns:1fr}
   .v1,.v6{grid-column:span 1}
-  .v1{padding:30px 28px}
-  .v1 h3{font-size:24px}
-  .section{padding:64px 0}
-  .cta-banner{padding:36px 26px}
+  .v1{padding:32px 28px}.v1 h3{font-size:24px}
+  .section{padding:70px 0}.brands{padding:70px 0}
+  .cta-banner{padding:38px 26px}
+  .mv-card{padding:34px 28px}
+  .contact-card{padding:30px 26px}
   .logo-mark{width:36px;height:36px}
   .logo-word .l1{font-size:9px;letter-spacing:.12em}
   .logo-word .l2{font-size:17px}
+  .brand-card{max-width:100%}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .rotor,.float-icon,.marquee-track{animation:none!important}
+  .rotor,.float-icon{animation:none!important}
   .reveal{transform:none;transition:opacity .3s linear}
-  .btn:hover,.mv-card:hover,.val-card:hover,.marquee-track img:hover{transform:none}
+  .btn:hover,.mv-card:hover,.val-card:hover,.brand-card:hover,.serv:hover,.quote:hover{transform:none}
 }
 </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ============ HEADER ============ -->
 <header class="header" id="header">
   <div class="wrap nav">
-    <a class="brand" href="#inicio" aria-label="Balatas y Refacciones Rodríguez, inicio">
+    <a class="logo-link" href="#inicio" aria-label="Balatas y Refacciones Rodríguez, inicio">
       <span class="logo">
         <svg class="logo-mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
@@ -460,41 +630,52 @@ img{display:block;max-width:100%}
           <span class="l2">Rodríguez</span>
         </span>
       </span>
+
     </a>
-    <nav class="nav-links" id="navlinks">
+    <nav class="nav-links" id="navlinks" aria-label="Principal">
+      <a href="#marcas">Marcas</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#valores">Valores</a>
       <a href="#servicios">Servicios</a>
-      <a href="#marcas">Marcas</a>
+      <a href="#opiniones">Opiniones</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:10px">
+    <div class="nav-cta">
       <a class="btn btn-wa" href="https://wa.me/5216751052695" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.06 24l1.68-6.14A11.87 11.87 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.81 11.81 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.13c1.68 1 3.27 1.59 5.45 1.59 5.45 0 9.89-4.43 9.89-9.88a9.84 9.84 0 0 0-2.9-7 9.78 9.78 0 0 0-6.98-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.86 9.86 0 0 0 1.51 5.26l-.99 3.61 3.92-1.67zM17.5 14.3c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg>
+        <span class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M.06 24l1.68-6.14A11.87 11.87 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.81 11.81 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.13c1.68 1 3.27 1.59 5.45 1.59 5.45 0 9.89-4.43 9.89-9.88a9.84 9.84 0 0 0-2.9-7 9.78 9.78 0 0 0-6.98-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.86 9.86 0 0 0 1.51 5.26l-.99 3.61 3.92-1.67zM17.5 14.3c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg></span>
         WhatsApp
       </a>
-      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
+<main>
 <!-- ============ HERO ============ -->
 <section class="hero" id="inicio">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">Refaccionaria en Durango</span>
-      <h1>Refacciones certificadas.<br><span class="hl">Frenado seguro.</span> Cero engaños.</h1>
-      <p class="lead">Asesoría técnica honesta y precios justos. Te vendemos la pieza que tu auto necesita, no la más cara.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="https://wa.me/5216751052695" target="_blank" rel="noopener">Cotiza por WhatsApp
-          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#nosotros">Conoce la tienda</a>
+  <span class="hero-glow" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">Refaccionaria en Durango</span>
+        <h1 class="reveal d1">Refacciones certificadas.<br><span class="hl">Frenado seguro.</span> Cero engaños.</h1>
+        <p class="lead reveal d2">Asesoría técnica honesta y precios justos. Te vendemos la pieza que tu auto necesita, no la más cara.</p>
+        <div class="hero-cta reveal d3">
+          <a class="btn btn-primary" href="https://wa.me/5216751052695" target="_blank" rel="noopener">Cotiza por WhatsApp
+            <span class="ico"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="btn btn-ghost" href="#nosotros">Conoce la tienda</a>
+        </div>
+        <div class="chips reveal d4">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>Marcas certificadas</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3.2"/></svg>Asesoría honesta</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>Precios justos</span>
+        </div>
       </div>
-      
-    </div>
 
-    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-shell reveal d2">
+          <div class="visual-core">
       <div class="disc-stage">
         <!-- ROTOR (spins) -->
         <svg class="rotor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -548,23 +729,51 @@ img{display:block;max-width:100%}
         <div class="float-icon fi-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.5 1.5 0 0 0 0 2.1l.9.9a1.5 1.5 0 0 0 2.1 0l6-6a4 4 0 0 0 5.4-5.4l-2.3 2.3-2.1-.6-.6-2.1z"/></svg></div>
         <div class="float-icon fi-3"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4.5 13.5H11l-1 8.5 9-12H12.5z"/></svg></div>
       </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal d3">
+      <div class="st"><b>Emiliano Zapata #205 Nte.</b><span>Nuestra tienda en Durango</span></div>
+      <div class="st"><b><span class="k">6</span> distribuidores aliados</b><span>Marcas líderes del sector</span></div>
+      <div class="st"><b>Lun a Sáb</b><span>Cotiza al momento por WhatsApp</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ MARCAS ============ -->
-<section class="marcas" id="marcas">
+<!-- ============ MARCAS / LÍNEAS ============ -->
+<section class="brands" id="marcas">
   <div class="wrap">
-    <p class="lbl reveal">Trabajamos con estos distribuidores</p>
-  </div>
-  <div class="marquee reveal d1">
-    <div class="marquee-track" id="track">
-      <img src="assets/gonher.jpeg" alt="Gonher" width="160" height="46" loading="lazy" decoding="async" /><img src="assets/ciosa.jpeg" alt="Ciosa Autopartes" width="160" height="46" loading="lazy" decoding="async" />
-      <img src="assets/vazquez.jpeg" alt="Vázquez" width="160" height="46" loading="lazy" decoding="async" /><img src="assets/energy-parts.jpeg" alt="Energy Parts" width="160" height="46" loading="lazy" decoding="async" />
-      <img src="assets/spr.jpeg" alt="SPR Automotive" width="160" height="46" loading="lazy" decoding="async" />
-      <img src="assets/gonher.jpeg" alt="Gonher" width="160" height="46" loading="lazy" decoding="async" /><img src="assets/ciosa.jpeg" alt="Ciosa Autopartes" width="160" height="46" loading="lazy" decoding="async" />
-      <img src="assets/vazquez.jpeg" alt="Vázquez" width="160" height="46" loading="lazy" decoding="async" /><img src="assets/energy-parts.jpeg" alt="Energy Parts" width="160" height="46" loading="lazy" decoding="async" />
-      <img src="assets/spr.jpeg" alt="SPR Automotive" width="160" height="46" loading="lazy" decoding="async" />
+    <div class="brands-head">
+      <div class="reveal">
+        <span class="eyebrow navy">Las líneas que manejamos</span>
+        <h2>Marcas y distribuidores con los que trabajamos</h2>
+      </div>
+      <p class="reveal d1">Refacciones de proveedores reconocidos del sector. Calidad respaldada en cada pieza que sale de la tienda.</p>
+    </div>
+    <div class="brand-grid">
+      <article class="brand-card reveal d1">
+        <div class="brand-plate"><img src="assets/brands/gonher.png" alt="Gonher" loading="lazy" decoding="async" width="600" height="300" /></div>
+        <div class="brand-meta"><b>Gonher</b><span>Lubricantes, filtros y aditivos</span></div>
+      </article>
+      <article class="brand-card reveal d2">
+        <div class="brand-plate"><img src="assets/brands/ciosa.png" alt="Ciosa Autopartes" loading="lazy" decoding="async" width="600" height="300" /></div>
+        <div class="brand-meta"><b>Ciosa Autopartes</b><span>Autopartes y refacciones</span></div>
+      </article>
+      <article class="brand-card reveal d3">
+        <div class="brand-plate"><img src="assets/brands/vazquez.png" alt="Vázquez" loading="lazy" decoding="async" width="600" height="300" /></div>
+        <div class="brand-meta"><b>Vázquez</b><span>Distribución de refacciones</span></div>
+      </article>
+      <article class="brand-card reveal d4">
+        <div class="brand-plate"><img src="assets/brands/energy.png" alt="Energy Parts" loading="lazy" decoding="async" width="600" height="300" /></div>
+        <div class="brand-meta"><b>Energy Parts</b><span>Línea eléctrica y baterías</span></div>
+      </article>
+      <article class="brand-card reveal d5">
+        <div class="brand-plate"><img src="assets/brands/spr.png" alt="SPR Automotive" loading="lazy" decoding="async" width="600" height="300" /></div>
+        <div class="brand-meta"><b>SPR Automotive</b><span>Componentes automotrices</span></div>
+      </article>
     </div>
   </div>
 </section>
@@ -573,6 +782,7 @@ img{display:block;max-width:100%}
 <section class="section" id="nosotros">
   <div class="wrap">
     <div class="section-head reveal">
+      <span class="eyebrow navy">Quiénes somos</span>
       <h2>Una refaccionaria que rinde cuentas</h2>
       <p>Nuestra razón de ser y el lugar al que queremos llegar, en palabras claras.</p>
     </div>
@@ -625,8 +835,10 @@ img{display:block;max-width:100%}
       </div>
       <div class="val-card v6 reveal d3">
         <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg></div>
-        <h3>Trabajo digno</h3>
-        <ul><li>Salarios justos y buenas condiciones laborales.</li><li>Equidad de género en un sector tradicionalmente masculinizado.</li></ul>
+        <div>
+          <h3>Trabajo digno</h3>
+          <ul><li>Salarios justos y buenas condiciones laborales.</li><li>Equidad de género en un sector tradicionalmente masculinizado.</li></ul>
+        </div>
       </div>
     </div>
   </div>
@@ -636,6 +848,7 @@ img{display:block;max-width:100%}
 <section class="section" id="servicios">
   <div class="wrap">
     <div class="section-head reveal">
+      <span class="eyebrow navy">Qué encuentras aquí</span>
       <h2>Todo para tu vehículo</h2>
       <p>Refacciones y servicio especializado, de la mano de marcas líderes del sector.</p>
     </div>
@@ -664,18 +877,79 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<!-- ============ TESTIMONIOS ============ -->
+<section class="section testi" id="opiniones">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Lo que dicen</span>
+      <h2>Clientes que vuelven</h2>
+      <p>Talleres, transportistas y automovilistas de Durango que confían en la tienda.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="quote feature reveal d1">
+        <div>
+          <span class="stars" aria-label="5 de 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </span>
+          <span class="mark" aria-hidden="true">&ldquo;</span>
+          <p>Llevo años surtiendo el taller aquí. Me dan la balata correcta a la primera y nunca me venden de más. Es la refaccionaria a la que mando a mis clientes con confianza.</p>
+        </div>
+        <div class="who">
+          <span class="av">JM</span>
+          <div><b>Jorge Medina</b><span>Taller mecánico, Durango</span></div>
+        </div>
+      </div>
+      <div class="testi-col">
+        <div class="quote reveal d2">
+          <span class="stars" aria-label="5 de 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </span>
+          <p>Les mandé el modelo de mi camioneta por WhatsApp y me cotizaron rapidísimo. Precio justo y la pieza sirvió perfecto.</p>
+          <div class="who">
+            <span class="av">LO</span>
+            <div><b>Laura Ontiveros</b><span>Transportista</span></div>
+          </div>
+        </div>
+        <div class="quote reveal d3">
+          <span class="stars" aria-label="5 de 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </span>
+          <p>Me explicaron qué necesitaba mi carro sin rodeos y sin venderme cosas de más. Se agradece la honestidad.</p>
+          <div class="who">
+            <span class="av">RS</span>
+            <div><b>Ramón Salcido</b><span>Cliente</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CTA BANNER ============ -->
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="cta-banner reveal">
+      <span class="glow" aria-hidden="true"></span>
       <div class="cta-inner">
         <div>
           <h2>¿No sabes qué pieza necesitas? Pregúntanos.</h2>
           <p>Mándanos el modelo de tu auto por WhatsApp y te cotizamos la refacción correcta, sin vueltas.</p>
         </div>
-        <a class="btn btn-wa" style="font-size:16px;padding:15px 26px" href="https://wa.me/5216751052695" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.06 24l1.68-6.14A11.87 11.87 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.81 11.81 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.13c1.68 1 3.27 1.59 5.45 1.59 5.45 0 9.89-4.43 9.89-9.88a9.84 9.84 0 0 0-2.9-7 9.78 9.78 0 0 0-6.98-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.86 9.86 0 0 0 1.51 5.26l-.99 3.61 3.92-1.67zM17.5 14.3c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg>
+        <a class="btn btn-wa" style="font-size:16px;padding:15px 16px 15px 26px" href="https://wa.me/5216751052695" target="_blank" rel="noopener">
           Cotiza por WhatsApp
+          <span class="ico" style="width:32px;height:32px"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.06 24l1.68-6.14A11.87 11.87 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.81 11.81 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.13c1.68 1 3.27 1.59 5.45 1.59 5.45 0 9.89-4.43 9.89-9.88a9.84 9.84 0 0 0-2.9-7 9.78 9.78 0 0 0-6.98-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.86 9.86 0 0 0 1.51 5.26l-.99 3.61 3.92-1.67zM17.5 14.3c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg></span>
         </a>
       </div>
     </div>
@@ -686,7 +960,7 @@ img{display:block;max-width:100%}
 <section class="section" id="contacto" style="background:#fff">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Visítanos</span>
+      <span class="eyebrow navy">Visítanos</span>
       <h2>Estamos para ayudarte</h2>
       <p>Pasa a la tienda o contáctanos por tus canales favoritos.</p>
     </div>
@@ -710,12 +984,13 @@ img{display:block;max-width:100%}
         </div>
       </div>
       <div class="map-card reveal d2">
-        <iframe title="Ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        <iframe title="Ubicación de Balatas y Refacciones Rodríguez" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Emiliano%20Zapata%20205%20Nte%20Durango&output=embed"></iframe>
       </div>
     </div>
   </div>
 </section>
+</main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
@@ -755,12 +1030,14 @@ img{display:block;max-width:100%}
           <span class="l2">Rodríguez</span>
         </span>
       </span>
+
       <p>Refacciones, balatas, mangueras y conexiones de marcas certificadas. Calidad y honestidad en cada venta.</p>
     </div>
     <div class="foot-col">
       <h5>Navegación</h5>
-      <a href="#nosotros">Nosotros</a><a href="#valores">Valores</a>
-      <a href="#servicios">Servicios</a><a href="#marcas">Marcas</a><a href="#contacto">Contacto</a>
+      <a href="#marcas">Marcas</a><a href="#nosotros">Nosotros</a>
+      <a href="#valores">Valores</a><a href="#servicios">Servicios</a>
+      <a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a>
     </div>
     <div class="foot-col">
       <h5>Contacto</h5>
@@ -770,16 +1047,16 @@ img{display:block;max-width:100%}
     </div>
   </div>
   <div class="wrap foot-bottom">
-    <span>© <span id="year"></span> Balatas y Refacciones Rodríguez. Todos los derechos reservados.</span>
+    <span>&copy; <span id="year"></span> Balatas y Refacciones Rodríguez. Todos los derechos reservados.</span>
+    <span>Durango, México</span>
   </div>
 </footer>
 
-<!-- ============ SOSO ============ -->
 <div id="soso" data-corner="br" data-open="1" role="complementary" aria-label="Soso, asistente de la refaccionaria">
   <div class="soso-bubble">
     <span class="soso-tail" aria-hidden="true"></span>
     <button class="soso-close" type="button" aria-label="Ocultar los consejos de Soso">&times;</button>
-    <span class="soso-name">Hola, soy Soso ⚡</span>
+    <span class="soso-name">Hola, soy Soso</span>
     <span class="soso-text" id="sosoText">Te doy consejos mientras navegas. Si estorbo, arrástrame a otra esquina.</span>
     <span class="soso-progress" aria-hidden="true"><i id="sosoBar"></i></span>
   </div>
@@ -1033,33 +1310,50 @@ img{display:block;max-width:100%}
   <span class="soso-sr" id="sosoLive" aria-live="polite"></span>
 </div>
 
+
 <script>
 (function(){
-  // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // header shadow on scroll
   var header = document.getElementById('header');
   window.addEventListener('scroll', function(){
     header.classList.toggle('scrolled', window.scrollY > 8);
   }, {passive:true});
 
-  // mobile menu
   var burger = document.getElementById('burger');
   var navlinks = document.getElementById('navlinks');
-  burger.addEventListener('click', function(){ navlinks.classList.toggle('open'); });
+  burger.addEventListener('click', function(){
+    var open = navlinks.classList.toggle('open');
+    burger.classList.toggle('on', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
   navlinks.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ navlinks.classList.remove('open'); });
+    a.addEventListener('click', function(){
+      navlinks.classList.remove('open'); burger.classList.remove('on');
+      burger.setAttribute('aria-expanded','false');
+    });
   });
 
-  // scroll reveal
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  }, {threshold:.12});
+  }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
+  // scroll-spy: highlight active nav link
+  var links = Array.prototype.slice.call(navlinks.querySelectorAll('a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = '#' + e.target.id;
+        links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === id); });
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+  sections.forEach(function(s){ spy.observe(s); });
 })();
 </script>
+
 <script>
 (function(){
   var root = document.getElementById('soso');
@@ -1291,6 +1585,7 @@ img{display:block;max-width:100%}
   setTimeout(function(){ wave(); schedule(DWELL); }, 900);
 })();
 </script>
+
 
 </body>
 </html>
