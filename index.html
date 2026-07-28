@@ -428,7 +428,7 @@ img{display:block;max-width:100%}
 /* ============ SOSO (mascota) ============ */
 #soso{
   position:fixed; top:0; left:0; z-index:90;
-  width:var(--soso-size,117px);
+  width:var(--soso-size,105px);
   transform:translate3d(0,0,0);
   touch-action:none;
   -webkit-user-select:none; user-select:none;
@@ -436,8 +436,8 @@ img{display:block;max-width:100%}
 }
 #soso[data-settling="1"]{transition:transform 460ms var(--ease-drawer)}
 #soso[data-hopping="1"]{transition:transform 620ms var(--ease-inout)}
-@media (max-width:900px){#soso{--soso-size:92px}}
-@media (max-width:560px){#soso{--soso-size:75px}}
+@media (max-width:900px){#soso{--soso-size:83px}}
+@media (max-width:560px){#soso{--soso-size:68px}}
 
 .soso-art{
   display:block; width:100%; height:auto; overflow:visible;
@@ -470,6 +470,55 @@ img{display:block;max-width:100%}
 @keyframes soso-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.014)}}
 @keyframes soso-zap{0%,100%{opacity:.55;transform:scale(.9)}18%{opacity:1;transform:scale(1.08)}34%{opacity:.7;transform:scale(.96)}52%{opacity:1;transform:scale(1.04)}}
 @keyframes soso-wave{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-13deg)}}
+
+/* ---- ignition spark FX (on position change) ---- */
+.soso-art-wrap{position:relative}
+.soso-fx{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:6;opacity:0}
+.soso-flash,.soso-sparks{grid-area:1/1}
+.soso-flash{
+  width:155%;aspect-ratio:1/1;border-radius:50%;transform:scale(.2);opacity:0;filter:blur(.5px);
+  background:radial-gradient(circle,
+    rgba(255,255,255,.98) 0%,
+    rgba(226,241,255,.95) 19%,
+    rgba(120,178,255,.7) 37%,
+    rgba(218,31,38,.34) 57%,
+    rgba(218,31,38,0) 74%);
+}
+.soso-sparks{position:relative;width:100%;height:100%}
+.soso-sparks b{
+  position:absolute;left:50%;top:50%;width:3px;height:var(--l,40%);border-radius:3px;opacity:0;
+  transform-origin:50% 0%;transform:rotate(var(--a)) translateY(6%) scaleY(0);
+  background:linear-gradient(to bottom,var(--c,#e9f4ff) 0%,#fff 46%,rgba(255,255,255,0) 100%);
+  box-shadow:0 0 6px 1px rgba(150,200,255,.85);
+}
+#soso[data-spark] .soso-fx{opacity:1}
+#soso[data-spark] .soso-flash{animation:soso-flash 340ms var(--ease-out) forwards}
+#soso[data-spark] .soso-sparks b{animation:soso-bolt 320ms var(--ease-out) forwards}
+@keyframes soso-flash{
+  0%{opacity:0;transform:scale(.2)}
+  22%{opacity:1;transform:scale(1.02)}
+  55%{opacity:.85;transform:scale(1.16)}
+  100%{opacity:0;transform:scale(1.5)}
+}
+@keyframes soso-bolt{
+  0%{opacity:0;transform:rotate(var(--a)) translateY(4%) scaleY(0)}
+  30%{opacity:1;transform:rotate(var(--a)) translateY(6%) scaleY(1)}
+  100%{opacity:0;transform:rotate(var(--a)) translateY(26%) scaleY(.25)}
+}
+/* mascot dematerialize / materialize */
+#soso[data-zap="out"] .soso-art{animation:soso-zapout 190ms cubic-bezier(.5,0,.75,0) forwards}
+#soso[data-zap="in"] .soso-art{animation:soso-zapin 380ms var(--ease-spring) forwards}
+@keyframes soso-zapout{
+  0%{opacity:1;transform:scale(1)}
+  45%{opacity:1;transform:scale(1.1)}
+  100%{opacity:0;transform:scale(.3) rotate(-6deg)}
+}
+@keyframes soso-zapin{
+  0%{opacity:0;transform:scale(.36) rotate(6deg)}
+  55%{opacity:1;transform:scale(1.07)}
+  100%{opacity:1;transform:scale(1)}
+}
+#soso[data-zap] .soso-bubble{opacity:0;transform:scale(.94);pointer-events:none}
 
 /* ---- speech bubble ---- */
 .soso-bubble{
@@ -524,6 +573,9 @@ img{display:block;max-width:100%}
   #soso,#soso[data-settling="1"],#soso[data-hopping="1"]{transition:none}
   .soso-art{transition:none}
   .soso-progress{display:none}
+  #soso[data-zap] .soso-art,#soso[data-spark] .soso-flash,#soso[data-spark] .soso-sparks b{animation:none}
+  #soso[data-spark] .soso-fx{opacity:0}
+  #soso[data-zap] .soso-bubble{opacity:1;transform:none}
 }
 .soso-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
@@ -1311,6 +1363,19 @@ img{display:block;max-width:100%}
 
   </g>
 </svg>
+  <span class="soso-fx" aria-hidden="true">
+    <span class="soso-flash"></span>
+    <span class="soso-sparks">
+      <b style="--a:0deg;--l:44%"></b>
+      <b style="--a:45deg;--l:30%;--c:var(--red)"></b>
+      <b style="--a:90deg;--l:40%"></b>
+      <b style="--a:135deg;--l:30%"></b>
+      <b style="--a:180deg;--l:44%"></b>
+      <b style="--a:225deg;--l:30%;--c:var(--red)"></b>
+      <b style="--a:270deg;--l:40%"></b>
+      <b style="--a:315deg;--l:30%"></b>
+    </span>
+  </span>
 </div>
   <span class="soso-sr" id="sosoLive" aria-live="polite"></span>
 </div>
@@ -1411,11 +1476,36 @@ img{display:block;max-width:100%}
     };
   }
   function place(p){ pos = p; root.style.transform = 'translate3d('+p.x+'px,'+p.y+'px,0)'; }
+  function spark(){
+    root.removeAttribute('data-spark');
+    void root.offsetWidth;                 // reflow to restart the burst
+    root.dataset.spark = '1';
+    clearTimeout(root._sparkT);
+    root._sparkT = setTimeout(function(){ root.removeAttribute('data-spark'); }, 360);
+  }
   function goCorner(c, mode){
-    root.dataset.corner = c;
-    root.dataset[mode||'hopping'] = '1';
-    place(cornerPos(c));
-    setTimeout(function(){ delete root.dataset.hopping; delete root.dataset.settling; }, 680);
+    // reduced motion: no spark, just slide into place
+    if(reduce.matches){
+      root.dataset.corner = c;
+      root.dataset.settling = '1';
+      place(cornerPos(c));
+      setTimeout(function(){ delete root.dataset.settling; }, 480);
+      return;
+    }
+    // ignition: spark + dematerialize here, teleport hidden, spark + materialize there
+    clearTimeout(root._zapT1); clearTimeout(root._zapT2);
+    delete root.dataset.hopping; delete root.dataset.settling;
+    spark();
+    root.dataset.zap = 'out';
+    root._zapT1 = setTimeout(function(){
+      root.dataset.corner = c;
+      place(cornerPos(c));                 // instant teleport while invisible
+      spark();
+      root.dataset.zap = 'in';
+    }, 178);
+    root._zapT2 = setTimeout(function(){
+      delete root.dataset.zap;
+    }, 178 + 400);
   }
 
   /* ---------- tips ---------- */
@@ -1533,6 +1623,8 @@ img{display:block;max-width:100%}
     e.preventDefault();                   // evita el drag nativo del SVG (dispara pointercancel)
     art.setPointerCapture(e.pointerId);
     delete root.dataset.hopping; delete root.dataset.settling;
+    clearTimeout(root._zapT1); clearTimeout(root._zapT2); clearTimeout(root._sparkT);
+    delete root.dataset.zap; root.removeAttribute('data-spark');
     root.dataset.dragging = '1';
     pause();
     drag = { id:e.pointerId, ox:e.clientX-pos.x, oy:e.clientY-pos.y,
