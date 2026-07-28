@@ -25,8 +25,9 @@ prefieras (renómbralo a `index.html` si eliges la carbon).
   y microinteracciones con transiciones spring.
 - Logo vectorial (SVG) embebido en encabezado y pie.
 - Hero con disco de freno animado dentro de un marco de doble bisel.
-- Seccion de **Marcas y lineas** con tarjetas de los distribuidores aliados
-  (Gonher, Ciosa, Vazquez, Energy Parts, SPR Automotive).
+- Seccion de **Marcas** con un muro animado (marquesina infinita de 3 filas, con
+  pausa al pasar el cursor) que muestra el catalogo completo de logos de
+  distribuidores; funciona igual en la version clara y en la carbon.
 - Secciones: Nosotros (Mision/Vision), Valores (bento), Servicios, Opiniones y Contacto.
 - Seccion de **Opiniones** de clientes (testimonios).
 - **Soso**, la mascota bujia interactiva: sigue el cursor, se puede arrastrar entre
@@ -43,12 +44,8 @@ prefieras (renómbralo a `index.html` si eliges la carbon).
 ├── index.html            (versión clara: logo SVG, secciones, mascota y scripts embebidos)
 ├── index-carbon.html     (versión carbon/negra: mismo contenido, tema oscuro neón + rojo)
 └── assets/
-    ├── brands/           (logos normalizados que usan las tarjetas de marca)
-    │   ├── gonher.png
-    │   ├── ciosa.png
-    │   ├── vazquez.png
-    │   ├── energy.png
-    │   └── spr.png
+    ├── brands/           (chips normalizados del muro de marcas)
+    │   ├── brand00.png ... brand45.png   (catálogo de logos de distribuidores)
     ├── gonher.jpeg        (logos originales / fuentes)
     ├── ciosa.jpeg
     ├── vazquez.jpeg
@@ -57,9 +54,10 @@ prefieras (renómbralo a `index.html` si eliges la carbon).
     └── logo.jpeg
 ```
 
-Las tarjetas de marca usan las versiones normalizadas en `assets/brands/`
-(cada logo centrado en una placa uniforme; SPR sobre placa azul marino para
-combinar con la paleta). Los `.jpeg` originales se conservan como fuente.
+El muro de marcas usa los chips normalizados en `assets/brands/` (`brand00.png` …
+`brand45.png`): cada logo recortado y centrado en un chip uniforme de 320x180,
+respetando su color de fondo nativo para que los de fondo oscuro sigan legibles.
+Los `.jpeg` en `assets/` se conservan como fuentes originales.
 
 ## Probar localmente
 
