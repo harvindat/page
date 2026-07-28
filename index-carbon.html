@@ -644,21 +644,149 @@ img{display:block;max-width:100%}
   .reveal{transform:none;transition:opacity .3s linear}
   .btn:hover,.mv-card:hover,.val-card:hover,.brand-card:hover,.serv:hover,.quote:hover{transform:none}
 }
-/* theme switch pill (links to the carbon version) */
+/* ============================================================
+   CARBON THEME — elegant black + neon blue + brand red
+   ============================================================ */
+body.carbon{
+  --red:#FF2D35; --red-deep:#B0141A;
+  --neon:#35E3FF; --neon-deep:#0F9FCC;
+  --head:#EFF3FA; --body:#CFD5E0; --muted:#8B93A1;
+  --navy:#0C1A2E; --navy-2:#112742; --navy-3:#163257;
+  --navy-tint:rgba(53,227,255,.10);
+  --steel-900:#070809; --steel-800:#0B0D11; --steel-700:#151A21;
+  --steel-500:#8B93A1; --steel-400:#6E7684; --steel-300:#4C5563;
+  --steel-200:rgba(255,255,255,.14); --steel-100:rgba(255,255,255,.06);
+  --paper:#070809; --paper-2:#0A0C10; --white:#0E1116;
+  --line:rgba(255,255,255,.075); --line-2:rgba(255,255,255,.14);
+  --glass:rgba(255,255,255,.035); --glass-2:rgba(255,255,255,.05);
+  --shadow-xs:0 1px 2px rgba(0,0,0,.55);
+  --shadow-sm:0 8px 24px -8px rgba(0,0,0,.65);
+  --shadow-md:0 26px 54px -22px rgba(0,0,0,.72);
+  --shadow-lg:0 54px 96px -32px rgba(0,0,0,.82);
+  --shadow-red:0 18px 46px -14px rgba(255,45,53,.5);
+  color:var(--body);
+  background:
+    radial-gradient(1100px 720px at 84% -8%, rgba(53,227,255,.10), transparent 60%),
+    radial-gradient(900px 680px at -8% 108%, rgba(255,45,53,.10), transparent 58%),
+    #060708;
+}
+body.carbon .grain{mix-blend-mode:screen;opacity:.05}
+
+/* text -> light */
+body.carbon h1,body.carbon h2,body.carbon h3,body.carbon h4{color:var(--head)}
+body.carbon .brand-meta b,body.carbon .info-row .v,body.carbon .quote .who b,
+body.carbon .hero-stats .st b,body.carbon .chip{color:var(--head)}
+body.carbon .hero .lead{color:var(--body)}
+body.carbon .mv-card p,body.carbon .quote p{color:var(--body)}
+body.carbon .quote.feature p{color:rgba(255,255,255,.94)}
+body.carbon .foot-col a{color:#9AA2B0}
+@media (hover:hover) and (pointer:fine){body.carbon .foot-col a:hover{color:#fff}}
+body.carbon .nav-links a{color:#AAB2BF}
+body.carbon .nav-links a.active{color:var(--head)}
+@media (hover:hover) and (pointer:fine){body.carbon .nav-links a:hover{color:var(--head)}}
+body.carbon .logo-word .l1{color:#AAB2BF}
+body.carbon .nav-links a::after{background:linear-gradient(90deg,var(--neon),var(--red))}
+
+/* header carbon glass */
+body.carbon .header{background:rgba(8,9,12,.55)}
+body.carbon .header.scrolled{background:rgba(8,9,12,.82);border-color:var(--line);box-shadow:0 10px 34px -18px rgba(0,0,0,.8)}
+body.carbon .burger span{background:var(--head)}
+
+/* hero glows -> neon + red */
+body.carbon .hero::after{background:radial-gradient(circle at 50% 50%,rgba(255,45,53,.16),transparent 62%)}
+body.carbon .hero-glow{background:radial-gradient(circle at 50% 50%,rgba(53,227,255,.16),transparent 64%)}
+body.carbon .chip svg{color:var(--neon)}
+body.carbon .chip{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.1)}
+
+/* eyebrows: section = neon, location = brand red, both glow */
+body.carbon .eyebrow{color:var(--neon);background:rgba(53,227,255,.08);border-color:rgba(53,227,255,.2)}
+body.carbon .eyebrow::before{background:var(--neon);box-shadow:0 0 0 3px rgba(53,227,255,.16),0 0 10px rgba(53,227,255,.7)}
+body.carbon .eyebrow.navy{color:var(--head);background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+body.carbon .eyebrow.navy::before{background:var(--neon);box-shadow:0 0 8px rgba(53,227,255,.7)}
+body.carbon .eyebrow-loc{color:#FF6169;background:rgba(255,45,53,.08);border-color:rgba(255,45,53,.24)}
+body.carbon .eyebrow-loc::before{background:var(--red);box-shadow:0 0 0 3px rgba(255,45,53,.16),0 0 10px rgba(255,45,53,.65)}
+
+/* hero visual shell -> dark glass frame + neon hairline */
+body.carbon .visual-shell{background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border-color:rgba(255,255,255,.1);
+  box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,.08),0 0 0 1px rgba(53,227,255,.09)}
+body.carbon .visual-core{background:radial-gradient(120% 120% at 30% 20%,#12161c,#0a0c10 70%,#070809);
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.05),inset 0 -14px 40px -20px rgba(0,0,0,.6)}
+body.carbon .float-icon{color:var(--neon);background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+
+/* buttons */
+body.carbon .btn-primary{box-shadow:0 16px 40px -14px rgba(255,45,53,.55),0 0 0 1px rgba(255,45,53,.32)}
+body.carbon .btn-ghost{background:rgba(255,255,255,.04);color:var(--head);border-color:rgba(255,255,255,.16)}
+@media (hover:hover) and (pointer:fine){body.carbon .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:var(--neon)}}
+body.carbon .btn-dark{background:linear-gradient(150deg,#12161c,#0b0e12);border:1px solid rgba(255,255,255,.09)}
+
+/* generic glass surfaces */
+body.carbon .mv-card,body.carbon .val-card,body.carbon .quote,
+body.carbon .contact-card,body.carbon .hero-stats,body.carbon .brand-card{background:var(--glass-2);border-color:var(--line)}
+body.carbon .mv-card{box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.05)}
+
+/* brand logos stay on light plates for legibility, framed in carbon + neon underline */
+body.carbon .brand-plate{background:#f4f6fb;border-color:rgba(255,255,255,.1);box-shadow:inset 0 1px 2px rgba(0,0,0,.18)}
+body.carbon .brand-card::after{background:linear-gradient(90deg,var(--neon),var(--red))}
+
+/* icon plates -> neon chips */
+body.carbon .val-ico,body.carbon .info-row .ic,body.carbon .quote .av{
+  background:rgba(53,227,255,.1);color:var(--neon);border:1px solid rgba(53,227,255,.22)}
+@media (hover:hover) and (pointer:fine){
+  body.carbon .val-card:hover .val-ico{background:var(--neon);color:#001018}
+  body.carbon .info-row:hover .ic{background:var(--neon);color:#001018}
+}
+body.carbon .mv-card .tag .dot{box-shadow:0 0 0 1px rgba(255,45,53,.3),0 10px 26px -10px rgba(255,45,53,.5)}
+body.carbon .mv-card.vis .tag .dot{background:linear-gradient(150deg,var(--neon-deep),#0b6f8a);color:#001018;box-shadow:0 0 0 1px rgba(53,227,255,.3),0 10px 26px -10px rgba(53,227,255,.5)}
+
+/* solid dark cards + serv panels: add faint hairline */
+body.carbon .val-card.solid,body.carbon .serv,body.carbon .v1,body.carbon .v4{box-shadow:var(--shadow-md),0 0 0 1px rgba(255,255,255,.05)}
+@media (hover:hover) and (pointer:fine){body.carbon .val-card.solid:hover .val-ico{background:#fff;color:#001018}}
+
+/* CTA banner + quote feature glow */
+body.carbon .cta-banner{box-shadow:var(--shadow-lg),0 0 0 1px rgba(53,227,255,.07)}
+body.carbon .cta-banner .glow{background:radial-gradient(circle,rgba(255,45,53,.45),transparent 62%)}
+body.carbon .quote.feature{box-shadow:var(--shadow-lg),0 0 0 1px rgba(53,227,255,.06)}
+
+/* footer -> carbon */
+body.carbon .footer{background:#070809}
+body.carbon .foot-bottom{border-top-color:rgba(255,255,255,.08)}
+
+/* dark map */
+body.carbon .map-card{background:#0a0c10;border-color:var(--line)}
+body.carbon .map-card iframe{filter:invert(.92) hue-rotate(180deg) saturate(.85) contrast(.95)}
+
+/* selection + focus */
+body.carbon ::selection{background:var(--neon);color:#001018}
+body.carbon :focus-visible{outline-color:var(--neon)}
+
+/* Soso bubble -> carbon glass */
+body.carbon .soso-bubble{background:rgba(15,18,24,.94);color:var(--body);border-color:rgba(255,255,255,.12);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 20px 44px -14px rgba(0,0,0,.75),0 0 0 1px rgba(53,227,255,.08)}
+body.carbon .soso-tail{background:rgba(15,18,24,.94);border-color:rgba(255,255,255,.12)}
+body.carbon .soso-name{color:var(--neon)}
+body.carbon .soso-text{color:var(--body)}
+body.carbon .soso-close{color:var(--muted)}
+body.carbon .soso-close:hover{background:rgba(255,255,255,.08);color:var(--head)}
+body.carbon .soso-progress{background:rgba(255,255,255,.09)}
+body.carbon .soso-progress i{background:linear-gradient(90deg,var(--neon),var(--red))}
+
+/* theme switch pill (links the two versions) */
 .theme-switch{position:fixed;left:20px;bottom:20px;z-index:130;display:inline-flex;align-items:center;gap:8px;
-  font-family:"Saira",sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
-  padding:9px 15px;border-radius:999px;background:#0C0E12;color:#EAF2FF;border:1px solid rgba(10,31,77,.16);
-  box-shadow:0 12px 30px -12px rgba(10,31,77,.4);transition:transform .25s var(--ease-out),box-shadow .25s}
+  font-family:"Saira",sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  padding:9px 15px;border-radius:999px;text-decoration:none;transition:transform .25s var(--ease-out),box-shadow .25s,background .25s,border-color .25s}
 .theme-switch svg{width:14px;height:14px}
-@media (hover:hover) and (pointer:fine){.theme-switch:hover{transform:translateY(-2px);box-shadow:0 16px 38px -12px rgba(10,31,77,.5)}}
+.theme-switch.to-carbon{background:#0C0E12;color:#EAF2FF;border:1px solid rgba(10,31,77,.16);box-shadow:0 12px 30px -12px rgba(10,31,77,.4)}
+.theme-switch.to-light{background:rgba(255,255,255,.05);color:var(--head);border:1px solid rgba(53,227,255,.28);box-shadow:0 0 0 1px rgba(53,227,255,.08),0 12px 34px -12px rgba(0,0,0,.7)}
+@media (hover:hover) and (pointer:fine){.theme-switch:hover{transform:translateY(-2px)}
+  .theme-switch.to-light:hover{border-color:var(--neon);box-shadow:0 0 14px -2px rgba(53,227,255,.5),0 12px 34px -12px rgba(0,0,0,.7)}}
 @media (max-width:560px){.theme-switch{left:14px;bottom:14px;font-size:10px;padding:8px 12px}}
 </style>
 </head>
-<body>
+<body class="carbon">
 <div class="grain" aria-hidden="true"></div>
-<a class="theme-switch to-carbon" href="index-carbon.html" aria-label="Ver la versión carbon del sitio">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-  Versión carbon
+<a class="theme-switch to-light" href="index.html" aria-label="Ver la versión clara del sitio">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  Versión clara
 </a>
 
 <!-- ============ HEADER ============ -->
@@ -1026,7 +1154,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ CONTACTO ============ -->
-<section class="section" id="contacto" style="background:#fff">
+<section class="section" id="contacto" style="background:#08090C">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow navy">Visítanos</span>

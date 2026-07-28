@@ -4,6 +4,19 @@ Landing page premium, responsiva y de una sola página para la refaccionaria
 **Balatas y Refacciones Rodríguez** (Durango). HTML, CSS y JavaScript puros,
 sin frameworks ni pasos de build.
 
+## Dos versiones (elige una)
+
+El proyecto incluye **dos temas** con el mismo contenido y comportamiento, para que
+compares y decidas cuál publicar:
+
+- **`index.html`** — versión clara (azul marino + rojo sobre fondo claro).
+- **`index-carbon.html`** — versión carbon: negro elegante con acentos de **azul neón**
+  y **rojo** de la marca, glass oscuro, hairlines neón, glows y mapa en modo oscuro.
+
+Cada versión tiene abajo a la izquierda un botón para saltar a la otra ("Versión carbon" /
+"Versión clara"), así comparas al instante. Cuando decidas, publica solo el archivo que
+prefieras (renómbralo a `index.html` si eliges la carbon).
+
 ## Qué incluye
 
 - Diseño minimalista y sofisticado con la paleta de la marca (azul marino `#0A1F4D`
@@ -27,7 +40,8 @@ sin frameworks ni pasos de build.
 
 ```
 .
-├── index.html            (logo SVG, secciones, mascota y scripts embebidos)
+├── index.html            (versión clara: logo SVG, secciones, mascota y scripts embebidos)
+├── index-carbon.html     (versión carbon/negra: mismo contenido, tema oscuro neón + rojo)
 └── assets/
     ├── brands/           (logos normalizados que usan las tarjetas de marca)
     │   ├── gonher.png
