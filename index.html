@@ -130,6 +130,8 @@ img{display:block;max-width:100%}
 .eyebrow.navy::before{background:var(--navy);box-shadow:0 0 0 3px rgba(10,31,77,.12)}
 .eyebrow.light{color:#fff;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}
 .eyebrow.light::before{background:var(--red);box-shadow:0 0 0 3px rgba(218,31,38,.3)}
+.eyebrow-loc{max-width:100%;line-height:1.5}
+.eyebrow-loc::before{flex:0 0 auto;align-self:flex-start;margin-top:4px}
 
 /* ============================================================
    BUTTONS
@@ -250,7 +252,7 @@ img{display:block;max-width:100%}
   background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:12px;
   box-shadow:var(--shadow-xs);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s;position:relative;overflow:hidden}
 .brand-plate{border-radius:var(--r-sm);background:#fff;border:1px solid var(--line);height:88px;display:grid;place-items:center;padding:14px 16px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(10,31,77,.05)}
-.brand-plate img{max-height:100%;max-width:100%;width:auto;object-fit:contain}
+.brand-plate img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;display:block}
 .brand-meta{padding:14px 8px 6px}
 .brand-meta b{font-family:"Saira",sans-serif;font-weight:800;font-size:15.5px;color:var(--navy);display:block;letter-spacing:.005em}
 .brand-meta span{display:block;margin-top:3px;font-size:12.5px;color:var(--steel-500);line-height:1.4}
@@ -660,7 +662,7 @@ img{display:block;max-width:100%}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow reveal">Refaccionaria en Durango</span>
+        <span class="eyebrow eyebrow-loc reveal">Refaccionaria orgullosamente de Vicente Guerrero, Durango</span>
         <h1 class="reveal d1">Refacciones certificadas.<br><span class="hl">Frenado seguro.</span> Cero engaños.</h1>
         <p class="lead reveal d2">Asesoría técnica honesta y precios justos. Te vendemos la pieza que tu auto necesita, no la más cara.</p>
         <div class="hero-cta reveal d3">
